@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+	<Bundle Name="Bootstrapper" Version="1.0.0.0" Manufacturer="" UpgradeCode="c1f6b443-9fc9-4c2f-8021-a212e135584c">
+    <BootstrapperApplicationRef Id="WixStandardBootstrapperApplication.RtfLargeLicense"/>
+
+  <PayloadGroup Id="NetFx462RedistPayload">
+      <Payload Name="redist\NDP471-KB4033342-x86-x64-AllOS-ENU.exe" SourceFile="C:\Users\greeshma\Downloads\NDP471-KB4033342-x86-x64-AllOS-ENU.exe"/>
+    </PayloadGroup> 
+    <Chain>
+
+      <!--Install .Net Framework 4.7.1-->
+      <PackageGroupRef Id="NetFx471Redist"/>
+ 
+      <MsiPackage Id="Setupv4" 
+                  DisplayInternalUI="yes" 
+                  Compressed="yes" 
+                  SourceFile="C:\Users\greeshma\source\repos\Setupv4\Setupv4\bin\Debug\Setup4.msi" Vital="yes"></MsiPackage>
+    </Chain>
+</Bundle>
+</Wix>
